@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import * as S from './styled'
 import githubShowcase from '../../assets/img/githubShowcase.png'
+import { useHistory } from 'react-router-dom';
 
 function Home() {
+    const history = useHistory();
     const [usuario, setUsuario] = useState('')
 
     function handleSearch() {
@@ -17,6 +19,7 @@ function Home() {
                     repositoriesNames.push(repository.name)
                 });
                 localStorage.setItem('repositoriesNames', JSON.stringify(repositoriesNames));
+                history.push('/repositories');
             });
     }
     return (
