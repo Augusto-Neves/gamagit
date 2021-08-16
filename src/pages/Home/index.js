@@ -6,7 +6,8 @@ import { useHistory } from 'react-router-dom';
 
 function Home() {
     const history = useHistory();
-    const [usuario, setUsuario] = useState('')
+    const [usuario, setUsuario] = useState('');
+    const [erro, setErro] = useState(false);
 
     function handleSearch() {
         axios.get(`https://api.github.com/users/${usuario}/repos`)
@@ -19,7 +20,12 @@ function Home() {
                     repositoriesNames.push(repository.name)
                 });
                 localStorage.setItem('repositoriesNames', JSON.stringify(repositoriesNames));
+                setErro(false);
                 history.push('/repositories');
+            })
+            .catch(err => {
+                setErro(true);
+                console.log(erro);
             });
     }
     return (
@@ -38,9 +44,9 @@ function Home() {
                         e => setUsuario(e.target.value)
                     }
                 />
-
                 <S.Button type="button" onClick={handleSearch}>Pesquisar</S.Button>
             </S.FormWrapper>
+            {erro ? <S.ErrorMsg>Usuário não encontrado</S.ErrorMsg> : ''}
         </S.Container>
     );
 }

@@ -15,9 +15,8 @@ export const Title = styled.h1`
 
 export const List = styled.ul`
     list-style: none;
-    padding: 0;
-    margin: 0;
-    
+    padding: 0 2%;
+    margin: 0;    
 `;
 
 export const ListItem = styled.li`
@@ -27,6 +26,7 @@ export const ListItem = styled.li`
     padding: .5rem;
     border-radius: .25rem;
     box-shadow: 8px 2px 2px 3px rgba(105,201,208,0.73);
+    font-weight: 600;
 `;
 
 export const LinkHome = styled(Link)`

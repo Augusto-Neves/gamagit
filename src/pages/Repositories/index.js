@@ -7,7 +7,7 @@ function Repositories() {
         let repositoriesName = localStorage.getItem('repositoriesNames');
         repositoriesName = JSON.parse(repositoriesName);
         setRepositories(repositoriesName);
-        // localStorage.clear();
+        localStorage.clear();
     }, []);
     return (
         <S.Container>

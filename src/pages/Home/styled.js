@@ -45,3 +45,10 @@ export const Button = styled.button`
         box-shadow: none;
     }
 `;
+
+export const ErrorMsg = styled.span`
+    display: block;
+    font-size: .65rem;
+    color: red;
+    font-weight: 600;
+`
